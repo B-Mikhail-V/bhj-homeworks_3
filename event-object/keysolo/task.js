@@ -25,37 +25,24 @@ class Game {
       При неправильном вводе символа - this.fail();
      */
 
-  const currLetter = this.currentSymbol
-  console.log(currLetter.textContent);
-
-addEventListener('keydown', onKey)
-
-function onKey(e) {
-  let pressLetter = e.key;
-  console.log(pressLetter); 
-  if(currLetter.textContent == pressLetter) {
-    console.log(currLetter.textContent == pressLetter);
-    this.currentSymbol = pressLetter;
-    this.success;
-   } else {
-    console.log(currLetter.textContent == pressLetter);
-    this.fail;
-   }
-}
-// console.log(pressLetter);
+  // const currLetter = this.currentSymbol
+  console.log(this.currentSymbol.textContent);
+  // console.log(this);
   
-  addEventListener('keyup', function() {
-    if(currLetter.textContent == pressLetter) {
-      console.log(currLetter.textContent == pressLetter);
-      // console.log(currLetter.textContent);
-      this.success;
-     } else {
-      console.log(currLetter.textContent == pressLetter);
-      // console.log(currLetter.textContent);
-      this.fail;
-     }
-  })
-   
+
+
+document.addEventListener('keyup', (e) => {
+  console.log(this.currentSymbol.textContent);
+  console.log(this.currentSymbol.textContent == e.key);
+
+  if(this.currentSymbol.textContent == e.key) {
+    this.success();
+   } else {
+    this.fail();
+   }
+
+})
+
 
 
   }
@@ -75,6 +62,7 @@ function onKey(e) {
   }
 
   fail() {
+    confirm('Ошибка, продолжаем?')
     if (++this.lossElement.textContent === 5) {
       alert('Вы проиграли!');
       this.reset();
@@ -121,4 +109,3 @@ function onKey(e) {
 }
 
 new Game(document.getElementById('game'))
-
