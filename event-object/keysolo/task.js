@@ -25,40 +25,27 @@ class Game {
       При неправильном вводе символа - this.fail();
      */
 
-  const currLetter = this.currentSymbol
-  console.log(currLetter.textContent);
+  console.log(this.currentSymbol.innerHTML);
 
-addEventListener('keydown', onKey)
+document.addEventListener('keyup', (e) => {
+  let k1 = e.key.toLowerCase();
+  console.log('---> ', k1);
+  if(this.currentSymbol.innerHTML == k1) {
+    console.log(this.currentSymbol.innerHTML == k1);
 
-function onKey(e) {
-  let pressLetter = e.key;
-  console.log(pressLetter); 
-  if(currLetter.textContent == pressLetter) {
-    console.log(currLetter.textContent == pressLetter);
-    this.currentSymbol = pressLetter;
-    this.success;
+    this.success();
+    console.log(this.currentSymbol.innerHTML);
+
    } else {
-    console.log(currLetter.textContent == pressLetter);
-    this.fail;
+    console.log(this.currentSymbol.innerHTML == e.key);
+    console.log(e.key);
+   this.fail();
    }
-}
-// console.log(pressLetter);
-  
-  addEventListener('keyup', function() {
-    if(currLetter.textContent == pressLetter) {
-      console.log(currLetter.textContent == pressLetter);
-      // console.log(currLetter.textContent);
-      this.success;
-     } else {
-      console.log(currLetter.textContent == pressLetter);
-      // console.log(currLetter.textContent);
-      this.fail;
-     }
-  })
-   
-
+})
 
   }
+
+
 
   success() {
     this.currentSymbol.classList.add('symbol_correct');
