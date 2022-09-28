@@ -25,27 +25,27 @@ class Game {
       При неправильном вводе символа - this.fail();
      */
 
-  // const currLetter = this.currentSymbol
-  console.log(this.currentSymbol.textContent);
-  // console.log(this);
-  
-
+  console.log(this.currentSymbol.innerHTML);
 
 document.addEventListener('keyup', (e) => {
-  console.log(this.currentSymbol.textContent);
-  console.log(this.currentSymbol.textContent == e.key);
+  let k1 = e.key.toLowerCase();
+  console.log('---> ', k1);
+  if(this.currentSymbol.innerHTML == k1) {
+    console.log(this.currentSymbol.innerHTML == k1);
 
-  if(this.currentSymbol.textContent == e.key) {
     this.success();
-   } else {
-    this.fail();
-   }
+    console.log(this.currentSymbol.innerHTML);
 
+   } else {
+    console.log(this.currentSymbol.innerHTML == e.key);
+    console.log(e.key);
+   this.fail();
+   }
 })
 
-
-
   }
+
+
 
   success() {
     this.currentSymbol.classList.add('symbol_correct');
