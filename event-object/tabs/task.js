@@ -1,16 +1,13 @@
 // массив вкладок
 const tabs = Array.from(document.querySelectorAll('.tab'));
-// console.log(tabs);
 
 // находим индекс активной вкладки
 function indexActiveTab() {
   return tabs.findIndex(tab => tab.classList.contains('tab_active'));
 }
-// console.log(indexActiveTab());
 
 // массив контента
 const content = Array.from(document.querySelectorAll('.tab__content'));
-console.log(content);
 
 // активация вкладки по индексу вкладки
 function tabActivate(index) {
@@ -45,14 +42,9 @@ function contentDeactivate() {
 // обработка события
 tabs.forEach(element => {
     element.addEventListener('click', () => {
-        // console.log("active before " & indexActiveTab());
-
         tabDeactivate();
         contentDeactivate();
-        const indexClicked = tabs.indexOf(element);
-
-        console.log(indexClicked);
-        
+        const indexClicked = tabs.indexOf(element);        
         tabActivate(indexClicked);
         contentActivate(indexClicked);
 
